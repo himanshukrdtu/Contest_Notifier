@@ -75,7 +75,7 @@ function App() {
         onClick={() => setShowNotificationModal(true)}
         title="Click to get notifications"
       >
-        Add Email to Get notification of upcoming contest
+        Add Email to Get notification of LeetCode , Codeforces & CodeChef upcoming contest
       </div>
 
       {showNotificationModal && (
