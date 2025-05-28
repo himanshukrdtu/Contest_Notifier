@@ -1,0 +1,31 @@
+name: Scheduled Backend API Calls
+
+on:
+  schedule:
+    - cron: '0 * * * *'       # Notify every hour
+    - cron: '0 0 * * *'       # Cleanup daily
+    - cron: '0 */4 * * *'     # Scrape every 4 hours
+  workflow_dispatch:
+
+jobs:
+  notify_api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call notify API (POST)
+        run: curl -X POST https://contest-notifier-2.onrender.com/api/notify-contests
+
+  cleanup_api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Conditional cleanup
+        if: |
+          github.event_name == 'workflow_dispatch' || github.event.schedule == '0 0 * * *'
+        run: curl -X DELETE https://contest-notifier-2.onrender.com/api/cleanup
+
+  scrape_api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Conditional scrape
+        if: |
+          github.event_name == 'workflow_dispatch' || github.event.schedule == '0 */4 * * *'
+        run: curl -X POST https://contest-notifier-2.onrender.com/api/scrape

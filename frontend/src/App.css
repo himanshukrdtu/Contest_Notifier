@@ -1,0 +1,203 @@
+/* General container padding */
+.app-container {
+  padding: 20px;
+  max-width: 960px;
+  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+}
+
+/* Title */
+.app-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+/* Notification text with subtle animation */
+.notification-text {
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #e67e22;
+  width: fit-content;
+  animation: moveText 4s ease-in-out infinite;
+  border-bottom: 2px dashed #e67e22;
+}
+
+/* Modal styles */
+.notification-modal {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  width: 90%;
+  max-width: 350px;
+}
+
+.modal-close-btn {
+  float: right;
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  color: #e67e22;
+}
+
+.notification-modal h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #2980b9;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+/* Form input styles */
+.notif-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notif-input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1.8px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.notif-input:focus {
+  border-color: #2980b9;
+  outline: none;
+}
+
+/* Submit button */
+.notif-submit-btn {
+  padding: 12px;
+  background-color: #2980b9;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.notif-submit-btn:hover {
+  background-color: #1f6391;
+}
+
+/* Notification message */
+.notif-message {
+  margin-top: 12px;
+  color: #e67e22;
+  font-weight: 600;
+}
+
+/* Table wrapper for horizontal scroll on mobile */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: white;
+}
+
+/* Contest Table */
+.contest-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 700px;
+}
+
+.contest-table th,
+.contest-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+  vertical-align: middle;
+  font-size: 0.9rem;
+}
+
+.contest-table thead tr {
+  background-color: #2980b9;
+  color: white;
+  font-weight: 600;
+}
+
+.contest-link {
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contest-link:hover {
+  text-decoration: underline;
+}
+
+/* Animation for moving text */
+@keyframes moveText {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(10px); }
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 15px 10px;
+  }
+
+  .app-title {
+    font-size: 1.5rem;
+  }
+
+  .notification-text {
+    font-size: 1rem;
+  }
+
+  .notification-modal {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .contest-table {
+    min-width: 600px;
+  }
+
+  .contest-table th,
+  .contest-table td {
+    padding: 10px 8px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .notification-text {
+    font-size: 0.9rem;
+  }
+
+  .contest-table {
+    min-width: 500px;
+  }
+
+  .contest-table th,
+  .contest-table td {
+    padding: 8px 6px;
+    font-size: 0.8rem;
+  }
+}
